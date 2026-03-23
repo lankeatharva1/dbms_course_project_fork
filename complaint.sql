@@ -5,6 +5,7 @@ CREATE TABLE complaint (
     location VARCHAR(100) NOT NULL,
     complaint_date DATE NOT NULL,
     complaint_status VARCHAR(20) NOT NULL,
+    complaint_closure_date datetime ,
     FOREIGN KEY (user_id) REFERENCES users(user_id),
     CONSTRAINT chk_status CHECK (complaint_status IN ('open','closed'))
 );

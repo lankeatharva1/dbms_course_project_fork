@@ -18,6 +18,8 @@ BEGIN
             SIGNAL SQLSTATE '45000'
                 SET MESSAGE_TEXT = 'Cannot close complaint: there are still lost items linked to this complaint.';
         END IF;
+        set NEW.complaint_closure_date = now();
+
     END IF;
 END;
 //
