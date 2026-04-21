@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Track Request - Lost & Found Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔍 Lost &amp; Found</div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link">Home</a></li>
+      <li><a href="report.html" class="nav-link">Report Item</a></li>
+      <li><a href="browse.html" class="nav-link">Browse Items</a></li>
+      <li><a href="track.html" class="nav-link active">Track Request</a></li>
+      <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+    </ul>
+    <button class="btn-login" onclick="window.location.href='login.html'">Login / Register</button>
+  </nav>
+
+  <!-- Track Request Section -->
+  <section class="section">
+    <h2 class="section-title">Track Your Request</h2>
+    <div class="track-box">
+      <input type="text" id="trackInput" placeholder="Enter your Tracking ID (e.g. LF-1001)" />
+      <button class="btn btn-primary" onclick="trackItem()">Track</button>
+    </div>
+    <div id="trackResult" class="track-result hidden"></div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Lost &amp; Found Portal. Built with Node.js, SQL &amp; HTML/CSS/JS.</p>
+  </footer>
+
+  <script src="track.js"></script>
+</body>
+</html>

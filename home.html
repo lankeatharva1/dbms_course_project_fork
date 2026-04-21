@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Home - Lost & Found Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔍 Lost &amp; Found</div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link active">Home</a></li>
+      <li><a href="report.html" class="nav-link">Report Item</a></li>
+      <li><a href="browse.html" class="nav-link">Browse Items</a></li>
+      <li><a href="track.html" class="nav-link">Track Request</a></li>
+      <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+    </ul>
+    <button class="btn-login" onclick="window.location.href='login.html'">Login / Register</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Find What You've Lost</h1>
+      <p>Report lost or found items and help reunite people with their belongings.</p>
+      <div class="hero-btns">
+        <a href="report.html" class="btn btn-primary">Report an Item</a>
+        <a href="browse.html" class="btn btn-outline">Browse Items</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span id="totalItems">0</span><p>Items Reported</p></div>
+      <div class="stat"><span id="resolvedItems">0</span><p>Items Returned</p></div>
+      <div class="stat"><span id="pendingItems">0</span><p>Pending</p></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section">
+    <h2 class="section-title">Why Use Our Portal?</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔍</div>
+        <h3>Smart Matching</h3>
+        <p>Our intelligent algorithm automatically finds potential matches for your lost items</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Track Items</h3>
+        <p>Get a unique tracking ID to monitor the status of your report</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🔐</div>
+        <h3>Secure & Safe</h3>
+        <p>Your data is protected with encryption and secure authentication</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Fast & Easy</h3>
+        <p>Report items in seconds with our simple and intuitive interface</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recent Items -->
+  <section class="section section-alt">
+    <h2 class="section-title">Recent Reports</h2>
+    <div class="items-grid" id="recentItems"></div>
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="browse.html" class="btn btn-primary">View All Items</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Lost &amp; Found Portal. Built with Node.js, SQL &amp; HTML/CSS/JS.</p>
+  </footer>
+
+  <script>
+    const API_URL = 'http://localhost:3000/api';
+
+    // Fetch stats
+    async function fetchStats() {
+      try {
+        const res = await fetch(`${API_URL}/stats`);
+        const stats = await res.json();
+        document.getElementById('totalItems').textContent = stats.total;
+        document.getElementById('resolvedItems').textContent = stats.resolved;
+        document.getElementById('pendingItems').textContent = stats.pending;
+      } catch (err) {
+        console.error('Failed to fetch stats');
+      }
+    }
+
+    // Fetch recent items
+    async function fetchRecentItems() {
+      try {
+        const res = await fetch(`${API_URL}/items`);
+        const items = await res.json();
+        const recent = items.slice(0, 6);
+        
+        const grid = document.getElementById('recentItems');
+        grid.innerHTML = recent.map(item => `
+          <div class="item-card ${item.item_type}">
+            <span class="item-badge badge-${item.item_type}">${item.item_type}</span>
+            <h3>${item.item_name}</h3>
+            <p class="meta">📁 ${item.category}</p>
+            <p class="meta">📍 ${item.location}</p>
+            <p class="meta">📅 ${item.item_date.split('T')[0]}</p>
+            <p class="item-id">ID: ${item.tracking_id}</p>
+          </div>
+        `).join('');
+      } catch (err) {
+        console.error('Failed to fetch items');
+      }
+    }
+
+    // Check auth
+    async function checkAuth() {
+      try {
+        const res = await fetch(`${API_URL}/auth/me`, { credentials: 'include' });
+        if (res.ok) {
+          const data = await res.json();
+          document.querySelector('.btn-login').textContent = `👤 ${data.user.name}`;
+          document.querySelector('.btn-login').onclick = () => window.location.href = 'profile.html';
+        }
+      } catch (err) {
+        console.log('Not authenticated');
+      }
+    }
+
+    fetchStats();
+    fetchRecentItems();
+    checkAuth();
+  </script>
+</body>
+</html>

@@ -394,21 +394,21 @@ MIT License
 
 ---
 
-## 👨‍💻 Contributors
+##  Contributors
 
 - Aditya Karhadkar
 - Atharva Lanke
 
 ---
 
-## 📞 Support
+##  Support
 
 For issues or questions, please open an issue on GitHub:
 https://github.com/ADITYAGKARHADKAR/dbms_course_project/issues
 
 ---
 
-## 🌟 Acknowledgments
+##  Acknowledgments
 
 This project demonstrates practical implementation of:
 - Database Management Systems concepts

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Browse Items - Lost & Found Portal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔍 Lost &amp; Found</div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link">Home</a></li>
+      <li><a href="report.html" class="nav-link">Report Item</a></li>
+      <li><a href="browse.html" class="nav-link active">Browse Items</a></li>
+      <li><a href="track.html" class="nav-link">Track Request</a></li>
+      <li><a href="how-it-works.html" class="nav-link">How It Works</a></li>
+    </ul>
+    <button class="btn-login" onclick="window.location.href='login.html'">Login / Register</button>
+  </nav>
+
+  <!-- Browse Items Section -->
+  <section class="section section-alt">
+    <h2 class="section-title">Browse Items</h2>
+    <div class="filter-bar">
+      <input type="text" id="searchInput" placeholder="Search items..." oninput="filterItems()" />
+      <select id="filterCategory" onchange="filterItems()">
+        <option value="">All Categories</option>
+        <option>Electronics</option>
+        <option>Clothing</option>
+        <option>Accessories</option>
+        <option>Documents</option>
+        <option>Keys</option>
+        <option>Phone</option>
+        <option>Jewellery</option>
+        <option>Camera</option>
+        <option>Money</option>
+        <option>Other</option>
+      </select>
+      <select id="filterStatus" onchange="filterItems()">
+        <option value="">All Status</option>
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+    </div>
+    <div class="items-grid" id="itemsGrid"></div>
+  </section>
+
+  <footer class="footer">
+    <p>© 2025 Lost &amp; Found Portal. Built with Node.js, SQL &amp; HTML/CSS/JS.</p>
+  </footer>
+
+  <script src="browse.js"></script>
+</body>
+</html>

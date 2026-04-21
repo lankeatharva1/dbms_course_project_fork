@@ -20,6 +20,11 @@ app.use(session({
   cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 }
 }));
 
+// Redirect root to home page
+app.get('/', (req, res) => {
+  res.redirect('/home.html');
+});
+
 // ── Auth Middleware ──────────────────────────────────────────
 const requireAuth = (req, res, next) => {
   if (!req.session.userId) return res.status(401).json({ error: 'Unauthorized' });

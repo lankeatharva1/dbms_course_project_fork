@@ -27,14 +27,28 @@
   </style>
 </head>
 <body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">🔍 Lost &amp; Found</div>
+    <ul class="nav-links">
+      <li><a href="home.html" class="nav-link">Home</a></li>
+      <li><a href="report.html" class="nav-link">Report Item</a></li>
+      <li><a href="browse.html" class="nav-link">Browse Items</a></li>
+      <li><a href="track.html" class="nav-link">Track Request</a></li>
+      <li><a href="how-it-works.html" class="nav-link active">How It Works</a></li>
+    </ul>
+    <button class="btn-login" onclick="window.location.href='login.html'">Login / Register</button>
+  </nav>
+
   <div class="demo-container">
-    <a href="index.html" class="back-btn">← Back to Portal</a>
+    <a href="home.html" class="back-btn">← Back to Portal</a>
     
     <div class="demo-box">
-      <h2> How Item Matching Works</h2>
+      <h2>🎯 How Item Matching Works</h2>
       <p>Our intelligent matching system automatically finds potential matches when you report a lost or found item.</p>
       
-      <h3>Matching Criteria</h3>
+      <h3>📊 Matching Criteria</h3>
       <table class="score-table">
         <thead>
           <tr>
@@ -97,10 +111,10 @@
     </div>
     
     <div class="demo-box">
-      <h2> Example Scenario</h2>
+      <h2>💡 Example Scenario</h2>
       
       <div class="example-card">
-        <h4> You Report: LOST iPhone 13</h4>
+        <h4>📱 You Report: LOST iPhone 13</h4>
         <p><strong>Category:</strong> Electronics</p>
         <p><strong>Location:</strong> Library Block A</p>
         <p><strong>Date:</strong> June 10, 2025</p>
@@ -109,38 +123,42 @@
       <h3>System Finds These Matches:</h3>
       
       <div class="example-card" style="border-left-color: #16a34a;">
-        <h4>High Match (6 points) - FOUND iPhone 13</h4>
+        <h4>✅ High Match (6 points) - FOUND iPhone 13</h4>
         <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Library (+2) | <strong>Date:</strong> June 11 (+1)</p>
         <p><strong>Contact:</strong> admin@portal.com</p>
       </div>
       
       <div class="example-card" style="border-left-color: #f59e0b;">
-        <h4>Medium Match (5 points) - FOUND Samsung Phone</h4>
+        <h4>⚠️ Medium Match (5 points) - FOUND Samsung Phone</h4>
         <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Library Block B (+2) | <strong>Date:</strong> June 15 (+0)</p>
         <p><strong>Contact:</strong> john@example.com</p>
       </div>
       
       <div class="example-card" style="border-left-color: #64748b;">
-        <h4> Low Match (3 points) - FOUND iPhone 13</h4>
+        <h4>ℹ️ Low Match (3 points) - FOUND iPhone 13</h4>
         <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Cafeteria (+0) | <strong>Date:</strong> June 20 (+0)</p>
         <p><strong>Contact:</strong> sarah@example.com</p>
       </div>
     </div>
     
     <div class="demo-box">
-      <h2>Tips for Better Matches</h2>
+      <h2>💬 Tips for Better Matches</h2>
       <ul style="line-height: 1.8; color: #64748b;">
-        <li>Be specific with item names (e.g., "Blue Nike Backpack" instead of just "Backpack")</li>
-        <li>Provide exact location details (e.g., "Library Block A, 2nd Floor" instead of "Library")</li>
-        <li>Enter the correct date when you lost/found the item</li>
-        <li>Add detailed descriptions to help verify ownership</li>
-        <li>Check your email regularly for match notifications</li>
+        <li>✅ Be specific with item names (e.g., "Blue Nike Backpack" instead of just "Backpack")</li>
+        <li>✅ Provide exact location details (e.g., "Library Block A, 2nd Floor" instead of "Library")</li>
+        <li>✅ Enter the correct date when you lost/found the item</li>
+        <li>✅ Add detailed descriptions to help verify ownership</li>
+        <li>✅ Check your email regularly for match notifications</li>
       </ul>
     </div>
     
     <div style="text-align: center; margin-top: 2rem;">
-      <a href="index.html#report" class="btn btn-primary">Report an Item Now</a>
+      <a href="report.html" class="btn btn-primary">Report an Item Now</a>
     </div>
   </div>
+
+  <footer class="footer">
+    <p>© 2025 Lost &amp; Found Portal. Built with Node.js, SQL &amp; HTML/CSS/JS.</p>
+  </footer>
 </body>
 </html>
