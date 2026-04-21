@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>How Matching Works - Lost & Found</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .demo-container { max-width: 900px; margin: 2rem auto; padding: 2rem; }
+    .demo-box { background: #fff; border-radius: 10px; padding: 2rem; margin-bottom: 2rem; box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+    .demo-box h2 { color: #2563eb; margin-bottom: 1rem; }
+    .demo-box h3 { color: #1e293b; margin: 1.5rem 0 1rem; font-size: 1.1rem; }
+    .step { display: flex; gap: 1rem; margin-bottom: 1.5rem; align-items: start; }
+    .step-num { background: #2563eb; color: #fff; width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; flex-shrink: 0; }
+    .step-content { flex: 1; }
+    .step-content h4 { margin-bottom: .3rem; }
+    .step-content p { color: #64748b; font-size: .9rem; }
+    .example-card { background: #f8fafc; border-left: 4px solid #2563eb; padding: 1rem; margin: 1rem 0; border-radius: 6px; }
+    .score-table { width: 100%; border-collapse: collapse; margin: 1rem 0; }
+    .score-table th, .score-table td { padding: .7rem; text-align: left; border-bottom: 1px solid #e2e8f0; }
+    .score-table th { background: #f1f5f9; font-weight: 600; }
+    .score-high { color: #16a34a; font-weight: 700; }
+    .score-med { color: #f59e0b; font-weight: 700; }
+    .score-low { color: #64748b; font-weight: 700; }
+    .back-btn { display: inline-block; margin-bottom: 1rem; color: #2563eb; text-decoration: none; font-weight: 500; }
+    .back-btn:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="demo-container">
+    <a href="index.html" class="back-btn">← Back to Portal</a>
+    
+    <div class="demo-box">
+      <h2> How Item Matching Works</h2>
+      <p>Our intelligent matching system automatically finds potential matches when you report a lost or found item.</p>
+      
+      <h3>Matching Criteria</h3>
+      <table class="score-table">
+        <thead>
+          <tr>
+            <th>Criteria</th>
+            <th>Points</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Same Category</strong></td>
+            <td class="score-high">+3</td>
+            <td>Item belongs to the same category (Electronics, Clothing, etc.)</td>
+          </tr>
+          <tr>
+            <td><strong>Similar Location</strong></td>
+            <td class="score-med">+2</td>
+            <td>Item found/lost in a similar location</td>
+          </tr>
+          <tr>
+            <td><strong>Recent Date</strong></td>
+            <td class="score-low">+1</td>
+            <td>Item reported within 7 days of your report</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <h3>🔍 How It Works</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-content">
+          <h4>Report Your Item</h4>
+          <p>Fill out the form with details about your lost or found item (name, category, location, date)</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-content">
+          <h4>System Searches</h4>
+          <p>Our algorithm searches for opposite type items (if you report "lost", it searches "found" items)</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-content">
+          <h4>Matches Displayed</h4>
+          <p>Potential matches appear with contact information and match score</p>
+        </div>
+      </div>
+      
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-content">
+          <h4>Contact Owner</h4>
+          <p>Reach out via email to verify and claim your item</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="demo-box">
+      <h2> Example Scenario</h2>
+      
+      <div class="example-card">
+        <h4> You Report: LOST iPhone 13</h4>
+        <p><strong>Category:</strong> Electronics</p>
+        <p><strong>Location:</strong> Library Block A</p>
+        <p><strong>Date:</strong> June 10, 2025</p>
+      </div>
+      
+      <h3>System Finds These Matches:</h3>
+      
+      <div class="example-card" style="border-left-color: #16a34a;">
+        <h4>High Match (6 points) - FOUND iPhone 13</h4>
+        <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Library (+2) | <strong>Date:</strong> June 11 (+1)</p>
+        <p><strong>Contact:</strong> admin@portal.com</p>
+      </div>
+      
+      <div class="example-card" style="border-left-color: #f59e0b;">
+        <h4>Medium Match (5 points) - FOUND Samsung Phone</h4>
+        <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Library Block B (+2) | <strong>Date:</strong> June 15 (+0)</p>
+        <p><strong>Contact:</strong> john@example.com</p>
+      </div>
+      
+      <div class="example-card" style="border-left-color: #64748b;">
+        <h4> Low Match (3 points) - FOUND iPhone 13</h4>
+        <p><strong>Category:</strong> Electronics (+3) | <strong>Location:</strong> Cafeteria (+0) | <strong>Date:</strong> June 20 (+0)</p>
+        <p><strong>Contact:</strong> sarah@example.com</p>
+      </div>
+    </div>
+    
+    <div class="demo-box">
+      <h2>Tips for Better Matches</h2>
+      <ul style="line-height: 1.8; color: #64748b;">
+        <li>Be specific with item names (e.g., "Blue Nike Backpack" instead of just "Backpack")</li>
+        <li>Provide exact location details (e.g., "Library Block A, 2nd Floor" instead of "Library")</li>
+        <li>Enter the correct date when you lost/found the item</li>
+        <li>Add detailed descriptions to help verify ownership</li>
+        <li>Check your email regularly for match notifications</li>
+      </ul>
+    </div>
+    
+    <div style="text-align: center; margin-top: 2rem;">
+      <a href="index.html#report" class="btn btn-primary">Report an Item Now</a>
+    </div>
+  </div>
+</body>
+</html>
