@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const session = require('express-session');
 const bcrypt = require('bcryptjs');
 const cors = require('cors');
@@ -18,7 +19,7 @@ app.use(cors({
 }));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('.'));
+app.use(express.static(path.join(__dirname, '.')));
 app.set('trust proxy', 1);
 app.use(session({
   secret: process.env.SESSION_SECRET,
